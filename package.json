@@ -1,0 +1,44 @@
+{
+  "name": "henl",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev src --hostname 127.0.0.1",
+    "build": "next build src",
+    "start": "next start src",
+    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@nextui-org/react": "1.0.0-beta.10",
+    "@reduxjs/toolkit": "^1.8.5",
+    "axios": "^0.27.2",
+    "formik": "^2.2.9",
+    "next": "12.2.5",
+    "next-themes": "^0.2.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-hook-form": "^7.35.0",
+    "react-redux": "^8.0.2",
+    "redux": "^4.2.0",
+    "redux-persist": "^6.0.0"
+  },
+  "devDependencies": {
+    "@sapphire/eslint-config": "^4.3.8",
+    "@svgr/webpack": "^6.3.1",
+    "@types/node": "18.7.14",
+    "@types/react": "18.0.18",
+    "@types/react-dom": "18.0.6",
+    "@typescript-eslint/eslint-plugin": "^5.36.1",
+    "@typescript-eslint/parser": "^5.36.1",
+    "eslint": "8.23.0",
+    "eslint-config-next": "12.2.5",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-next": "^0.0.0",
+    "eslint-plugin-react": "^7.31.1",
+    "prettier": "^2.7.1",
+    "typescript": "4.8.2"
+  }
+}

@@ -1,0 +1,48 @@
+{
+    "extends": [
+        "next",
+        "next/core-web-vitals",
+        "prettier",
+        "@sapphire",
+        "plugin:@next/eslint-plugin-next/recommended",
+        "plugin:import/typescript"
+    ],
+    "parserOptions": {
+        "ecmaVersion": 2020,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "warnOnUnsupportedTypeScriptVersion": false
+    },
+    "plugins": ["import", "jsx-a11y", "react", "react-hooks"],
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
+    },
+    "rules": {
+        "@next/next/no-document-import-in-page": "off"
+    },
+    "overrides": [
+        {
+            "files": ["src/utils/structures/color/*.ts"],
+            "rules": {
+                "import/first": "off",
+                "@typescript-eslint/no-throw-literal": "off"
+            }
+        },
+        {
+            "files": ["src/next-env.d.ts"],
+            "rules": {
+                "spaced-comment": "off"
+            }
+        },
+        {
+            "files": ["src/pages/**/*.tsx", "src/next.config.js"],
+            "rules": {
+                "@typescript-eslint/require-await": "off"
+            }
+        }
+    ]
+}
