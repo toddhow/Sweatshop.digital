@@ -1,7 +1,7 @@
 import React, { FC, Key, memo, useState } from 'react';
 import { Navbar, Text, Button, Avatar, Dropdown } from '@nextui-org/react';
 import { request } from '@utils/util';
-import LoginModal from '@components/Authentication/LoginModalWithReactHookForm';
+import SigninModal from '@components/presentational/Authentication/SigninModal';
 import { updateUser } from '@redux/reducers';
 import { useStoreDispatch, useStoreSelector } from '@redux';
 import type { AxiosResponse } from 'axios';
@@ -35,7 +35,7 @@ const AppBar: FC = () => {
     return (
         <Navbar aria-label="Navigation Bar" isBordered variant="floating">
             <Navbar.Brand>
-                <Text h2 b color="inherit" hideIn="xs">
+                <Text h3 b color="inherit" hideIn="xs">
                     Sweatshop Digital
                 </Text>
             </Navbar.Brand>
@@ -43,7 +43,7 @@ const AppBar: FC = () => {
                 <Text>About Us</Text>
             </Navbar.Content>
             <Navbar.Content>
-                <LoginModal visible={visible} onClose={closeHandler} />
+                <SigninModal visible={visible} onClose={closeHandler} />
                 {user ? (
                     <Dropdown placement="bottom-right">
                         <Navbar.Item>

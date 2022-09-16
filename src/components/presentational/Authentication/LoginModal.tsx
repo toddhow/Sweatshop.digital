@@ -1,14 +1,5 @@
 import React, { FC, memo, useState } from 'react';
-import {
-    Modal,
-    Button,
-    Text,
-    Input,
-    Grid,
-    Link,
-    Spacer,
-    Row,
-} from '@nextui-org/react';
+import { Modal, Button, Text, Input, Link, Row } from '@nextui-org/react';
 import NextLink from 'next/link';
 import { Mail, Key } from '@assets';
 import { request } from '@utils/util';

@@ -4,15 +4,20 @@ import AppBar from '@components/Navigation/AppBar';
 import Footer from '@components/Navigation/Footer';
 
 interface GeneralPageProps {
-    loading?: boolean;
     children?: ReactNode;
+    loading?: boolean;
+    includeNavBar?: boolean;
 }
 
-const GeneralPage: FC<GeneralPageProps> = ({ children, loading = false }) => {
+const GeneralPage: FC<GeneralPageProps> = ({
+    children,
+    loading = false,
+    includeNavBar = true,
+}) => {
     return (
         <>
             <Container responsive>
-                <AppBar />
+                {includeNavBar && <AppBar />}
                 {loading ? (
                     <Progress
                         indeterminated

@@ -1,4 +1,4 @@
-export const BRAND_NAME = process.env.BRAND_NAME;
+export const { BRAND_NAME } = process.env;
 
 export enum LocalStorageKeys {
     HasCookieConsent = 'allows_cookies',
