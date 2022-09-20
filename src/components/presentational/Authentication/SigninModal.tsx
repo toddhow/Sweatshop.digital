@@ -5,7 +5,7 @@ import {
     Text,
     Input,
     Link,
-    Row,
+    Grid,
     Spacer,
 } from '@nextui-org/react';
 import NextLink from 'next/link';
@@ -14,12 +14,14 @@ import { request } from '@utils/util';
 import { updateUser } from '@redux/reducers';
 import { useStoreDispatch, useStoreSelector } from '@redux';
 import { useForm, Controller } from 'react-hook-form';
+import { useRouter } from 'next/router';
 import type { User } from '@types';
 import type { AxiosResponse } from 'axios';
 
-export interface SigninModalProps {
+interface SigninModalProps {
     visible: boolean;
     onClose: () => void;
+    href?: string;
 }
 
 interface IFormInput {
@@ -27,7 +29,13 @@ interface IFormInput {
     password: string;
 }
 
-const SigninModal: FC<SigninModalProps> = ({ visible = false, onClose }) => {
+const SigninModal: FC<SigninModalProps> = ({
+    visible = false,
+    onClose,
+    href,
+}) => {
+    const router = useRouter();
+
     const dispatch = useStoreDispatch();
     const userState = useStoreSelector((s) => s.user);
 
@@ -55,11 +63,11 @@ const SigninModal: FC<SigninModalProps> = ({ visible = false, onClose }) => {
                     password: data.password,
                 },
             })
-            .then((response: AxiosResponse) => {
+            .then(async (response: AxiosResponse) => {
                 dispatch(updateUser(response.data));
                 setUser(response.data);
                 onClose();
-                //  return true;
+                href && (await router.push(href));
             })
             .catch(() => {
                 setError('password', {
@@ -78,9 +86,22 @@ const SigninModal: FC<SigninModalProps> = ({ visible = false, onClose }) => {
             onClose={onClose}
         >
             <Modal.Header>
-                <Text b size={18}>
-                    Sweatshop Digital
-                </Text>
+                <Grid.Container css={{ pl: '$6' }}>
+                    <Grid justify="center" xs={12}>
+                        <Text h4 css={{ lineHeight: '$xs' }}>
+                            Welcome to Sweatshop Digital
+                        </Text>
+                    </Grid>
+                    <Grid justify="center" xs={12}>
+                        <Text>
+                            <NextLink href="/auth/signup">
+                                <Link>
+                                    Don&apos;t have an account? Sign Up!
+                                </Link>
+                            </NextLink>
+                        </Text>
+                    </Grid>
+                </Grid.Container>
             </Modal.Header>
             <Modal.Body>
                 <form id="signin" onSubmit={handleSubmit(onSubmit)}>
@@ -131,15 +152,6 @@ const SigninModal: FC<SigninModalProps> = ({ visible = false, onClose }) => {
                         )}
                     />
                 </form>
-                <Row justify="center">
-                    <NextLink href="/signup">
-                        <Link>
-                            <Text size={14}>
-                                Don&apos;t have an account? Sign Up!
-                            </Text>
-                        </Link>
-                    </NextLink>
-                </Row>
             </Modal.Body>
             <Modal.Footer justify="center">
                 <Button
@@ -153,9 +165,10 @@ const SigninModal: FC<SigninModalProps> = ({ visible = false, onClose }) => {
                 </Button>
                 <Button
                     aria-label="Sign in button"
+                    auto
                     type="submit"
                     form="signin"
-                    auto
+                    shadow
                 >
                     Sign in
                 </Button>

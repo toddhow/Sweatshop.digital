@@ -15,23 +15,20 @@ const GeneralPage: FC<GeneralPageProps> = ({
     includeNavBar = true,
 }) => {
     return (
-        <>
-            <Container responsive>
-                {includeNavBar && <AppBar />}
-                {loading ? (
-                    <Progress
-                        indeterminated
-                        value={50}
-                        color="secondary"
-                        status="secondary"
-                    />
-                ) : (
-                    <>{children}</>
-                )}
-
-                <Footer />
-            </Container>
-        </>
+        <Container>
+            {includeNavBar && <AppBar />}
+            {loading ? (
+                <Progress
+                    indeterminated
+                    value={50}
+                    color="secondary"
+                    status="secondary"
+                />
+            ) : (
+                <>{children}</>
+            )}
+            <Footer />
+        </Container>
     );
 };
 
