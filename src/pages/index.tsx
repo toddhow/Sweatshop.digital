@@ -6,7 +6,7 @@ const Home: NextPage = () => {
     const [loading, setLoading] = useState(false);
     return (
         <>
-            <GeneralPage loading={loading} />
+            <GeneralPage loading={loading}></GeneralPage>
         </>
     );
 };

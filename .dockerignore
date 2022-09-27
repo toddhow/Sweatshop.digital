@@ -1,0 +1,24 @@
+
+# Distribution files 
+.next/
+
+# Git related folders
+.git/
+.github/
+
+# VSCode folder/files
+.vscode/
+
+# node_modules
+node_modules/
+
+# Rc files
+.eslintrc
+.prettierrc
+
+# Ignore files
+.eslintignore
+.prettierignore
+.gitignore
+
+tsconfig.eslint.json

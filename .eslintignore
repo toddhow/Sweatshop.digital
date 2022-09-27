@@ -2,3 +2,5 @@ node_modules/
 dist/
 src/.next/
 src/next-env.d.ts
+next.config.js
+next-env.d.ts

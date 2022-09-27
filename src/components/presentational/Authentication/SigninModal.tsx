@@ -11,12 +11,12 @@ import {
 import NextLink from 'next/link';
 import { Mail, Key } from '@assets';
 import { request } from '@utils/util';
-import { updateUser } from '@redux/reducers';
-import { useStoreDispatch, useStoreSelector } from '@redux';
 import { useForm, Controller } from 'react-hook-form';
 import { useRouter } from 'next/router';
-import type { User } from '@types';
-import type { AxiosResponse } from 'axios';
+import { updateUser } from '@redux/reducers';
+import { useStoreDispatch, useStoreSelector } from '@redux';
+import { User } from '@types';
+import { AxiosResponse } from 'axios';
 
 interface SigninModalProps {
     visible: boolean;

@@ -13,7 +13,8 @@
         "ecmaFeatures": {
             "jsx": true
         },
-        "warnOnUnsupportedTypeScriptVersion": false
+        "warnOnUnsupportedTypeScriptVersion": false,
+        "project": ["./src/tsconfig.json"]
     },
     "plugins": ["import", "jsx-a11y", "react", "react-hooks"],
     "settings": {
@@ -25,13 +26,6 @@
         "@next/next/no-document-import-in-page": "off"
     },
     "overrides": [
-        {
-            "files": ["src/utils/structures/color/*.ts"],
-            "rules": {
-                "import/first": "off",
-                "@typescript-eslint/no-throw-literal": "off"
-            }
-        },
         {
             "files": ["src/next-env.d.ts"],
             "rules": {

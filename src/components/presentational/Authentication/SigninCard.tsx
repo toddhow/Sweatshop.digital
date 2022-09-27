@@ -5,6 +5,10 @@ import { useRouter } from 'next/router';
 import { Mail, Key } from '@assets';
 import { request } from '@utils/util';
 import { useForm, Controller } from 'react-hook-form';
+import { updateUser } from '@redux/reducers';
+import { useStoreDispatch, useStoreSelector } from '@redux';
+import { User } from '@types';
+import { AxiosResponse } from 'axios';
 
 interface IFormInput {
     email: string;
@@ -13,6 +17,9 @@ interface IFormInput {
 
 const SigninCard: FC = () => {
     const router = useRouter();
+
+    const dispatch = useStoreDispatch();
+    const user = useStoreSelector((s) => s.user);
 
     const {
         register,
@@ -36,7 +43,8 @@ const SigninCard: FC = () => {
                     password: data.password,
                 },
             })
-            .then(async () => {
+            .then(async (response: AxiosResponse) => {
+                dispatch(updateUser(response.data));
                 await router.push('/');
             })
             .catch(() => {
